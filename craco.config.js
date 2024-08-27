@@ -6,7 +6,6 @@ module.exports = {
       fallback: {
         buffer: require.resolve('buffer/'),
         timers: require.resolve('timers-browserify'),
-        // Puedes agregar otros polyfills necesarios aquí
       },
       alias: {
         buffer: path.resolve(__dirname, 'node_modules/buffer/'),
