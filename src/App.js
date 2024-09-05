@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import GameSearch from './components/GameSearch';
 import Navbar from './components/Navbar';
 import PlayerInputs from './components/PlayerInputs';
+import RandomPlayerPicker from './components/RandomPlayerPicker';
 import { XMLParser } from 'fast-xml-parser';
 
 const API_URL = 'https://corsproxy.io/?https://boardgamegeek.com/xmlapi/boardgame/';
@@ -66,6 +67,7 @@ function App() {
 						minPlayers={minPlayers}
 						maxPlayers={maxPlayers}
 					/>
+					<RandomPlayerPicker players={players} />
 				</>
 			)}
 		</div>

@@ -9,5 +9,10 @@
         "placeholder": "Name player",
         "addPlayer": "Add player",
         "removePlayer": "Remove player"
+    },
+    "RandomPlayerPicker": {
+        "button": "Sort players",
+        "title": "Player order",
+        "noPlayers": "No players available."
     }
 }
