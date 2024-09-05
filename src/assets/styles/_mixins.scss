@@ -1,0 +1,17 @@
+@mixin media-query($breakpoint) {
+    @if $breakpoint == mobile {
+        @media (max-width: 600px) {
+            @content;
+        }
+    }
+    @else if $breakpoint == tablet {
+        @media (max-width: 900px) {
+            @content;
+        }
+    }
+    @else if $breakpoint == desktop {
+        @media (min-width: 901px) {
+            @content;
+        }
+    }
+}
