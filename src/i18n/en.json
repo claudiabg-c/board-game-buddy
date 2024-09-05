@@ -3,5 +3,11 @@
         "placeholder": "Search for a game...",
         "button": "Search",
         "error": "Error: {{error}}"
+    },
+    "PlayerInputs": {
+        "title": "Enter player names",
+        "placeholder": "Name player",
+        "addPlayer": "Add player",
+        "removePlayer": "Remove player"
     }
 }

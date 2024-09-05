@@ -3,5 +3,11 @@
         "placeholder": "Buscar un juego...",
         "button": "Buscar",
         "error": "Error: {{error}}"
+    },
+    "PlayerInputs": {
+        "title": "Añade los nombres de los jugadores",
+        "placeholder": "Nombre jugador",
+        "addPlayer": "Añadir jugador",
+        "removePlayer": "Eliminar jugador"
     }
 }

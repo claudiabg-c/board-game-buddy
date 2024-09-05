@@ -51,7 +51,7 @@ function GameSearch({ onGameSelect }) {
 
             <ul>
                 {games.map((game) => (
-                    <li key={game.id}>
+                    <li key={game.id} onClick={() => onGameSelect(game)}>
                         {game.name} ({game.yearpublished})
                     </li>
                 ))}
