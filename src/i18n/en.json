@@ -1,0 +1,7 @@
+{
+    "GameSearch": {
+        "placeholder": "Search for a game...",
+        "button": "Search",
+        "error": "Error: {{error}}"
+    }
+}

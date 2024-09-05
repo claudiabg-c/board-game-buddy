@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { XMLParser } from 'fast-xml-parser';
+import { useTranslation } from 'react-i18next';
 
 const API_URL = 'https://corsproxy.io/?https://boardgamegeek.com/xmlapi/search';
 
 function GameSearch({ onGameSelect }) {
+    const { t } = useTranslation();
     const [searchTerm, setSearchTerm] = useState('');
     const [games, setGames] = useState([]);
     const [error, setError] = useState(null);
@@ -39,16 +41,18 @@ function GameSearch({ onGameSelect }) {
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search for a game..."
+                placeholder={t('GameSearch.placeholder')}
             />
-            <button onClick={handleSearch}>Search</button>
+            <button onClick={handleSearch}>
+                {t('GameSearch.button')}
+            </button>
 
-            {error && <p>Error: {error}</p>}
+            {error && <p>{t('GameSearch.error', { error })}</p>}
 
             <ul>
                 {games.map((game) => (
                     <li key={game.id}>
-                        {game.name} (Year Published: {game.yearpublished})
+                        {game.name} ({game.yearpublished})
                     </li>
                 ))}
             </ul>
