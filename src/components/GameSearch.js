@@ -12,7 +12,6 @@ function GameSearch({ onGameSelect }) {
     const [allIds, setAllIds] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [games, setGames] = useState([]);
-    const [error, setError] = useState(null);
     const [searchMessage, setSearchMessage] = useState('');
     const [loading, setLoading] = useState(false);
     const [searchPerformed, setSearchPerformed] = useState(false);
@@ -34,7 +33,6 @@ function GameSearch({ onGameSelect }) {
             return [];
         } catch (err) {
             console.error('Error fetching game details:', err);
-            setError(err.message);
             return [];
         }
     }, []);
@@ -54,12 +52,19 @@ function GameSearch({ onGameSelect }) {
         const gamesData = await fetchGameDetails(idsString);
 
         if (gamesData.length > 0) {
-            const gamesOnPage = gamesData.map(game => ({
-                id: game['@_objectid'],
-                name: game.name ? game.name['#text'] : 'Unknown',
-                yearpublished: game.yearpublished,
-                thumbnail: game.thumbnail || null
-            }));
+            const gamesOnPage = gamesData.map(game => {
+                const nameArray = Array.isArray(game.name) ? game.name : [game.name];
+                const primaryName = nameArray.find(n => n['@_primary'] === 'true');
+                const displayName = primaryName ? primaryName['#text'] : (nameArray[0] ? nameArray[0]['#text'] : 'Unknown');
+                
+                return {
+                    id: game['@_objectid'],
+                    name: displayName,
+                    yearpublished: game.yearpublished,
+                    thumbnail: game.thumbnail || null
+                };
+            });
+            
             setGames(gamesOnPage);
             setNoResultsMessage('');
         } else {
