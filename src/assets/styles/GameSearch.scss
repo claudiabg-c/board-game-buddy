@@ -1,0 +1,11 @@
+section {
+    .search-result {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: space-around;
+        li {
+            width: calc(33% - 15px);
+        }
+    }
+}

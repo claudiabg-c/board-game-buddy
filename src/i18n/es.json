@@ -2,7 +2,10 @@
     "GameSearch": {
         "placeholder": "Buscar un juego...",
         "button": "Buscar",
-        "error": "Error: {{error}}"
+        "error": "Error: {{error}}",
+        "searching": "Resultados de la búsqueda de",
+        "noResults": "Sin resultados de",
+        "loading": "Cargando..."
     },
     "PlayerInputs": {
         "title": "Añade los nombres de los jugadores",

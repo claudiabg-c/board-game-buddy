@@ -2,7 +2,10 @@
     "GameSearch": {
         "placeholder": "Search for a game...",
         "button": "Search",
-        "error": "Error: {{error}}"
+        "error": "Error: {{error}}",
+        "searching": "Results for",
+        "noResults": "No results from",
+        "loading": "Loading..."
     },
     "PlayerInputs": {
         "title": "Enter player names",
