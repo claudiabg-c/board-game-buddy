@@ -26,7 +26,6 @@ function GameSearch({ onGameSelect }) {
             const text = await response.text();
             const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: "@_" });
             const result = parser.parse(text);
-            // Verificar si result.boardgames y result.boardgames.boardgame están definidos
             if (result.boardgames && result.boardgames.boardgame) {
                 return result.boardgames.boardgame;
             }

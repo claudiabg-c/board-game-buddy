@@ -6,6 +6,17 @@ section {
         justify-content: space-around;
         li {
             width: calc(33% - 15px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 20px;
+            img {
+                height: 150px;
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+            }
         }
     }
 }
