@@ -36,7 +36,7 @@ function GameSearch({ onGameSelect }) {
     };
 
     return (
-        <div>
+        <section>
             <input
                 type="text"
                 value={searchTerm}
@@ -56,7 +56,7 @@ function GameSearch({ onGameSelect }) {
                     </li>
                 ))}
             </ul>
-        </div>
+        </section>
     );
 }
 
