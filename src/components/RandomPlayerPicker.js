@@ -11,7 +11,7 @@ function RandomPlayerPicker({ players }) {
     };
 
     return (
-        <div>
+        <div className='sort-players'>
             <button onClick={handlePickPlayer} disabled={players.length === 0}>
                 {t('RandomPlayerPicker.button')}
             </button>
@@ -19,7 +19,7 @@ function RandomPlayerPicker({ players }) {
                 <ol>
                     {sortedPlayers.map((player, index) => (
                         <li key={index}>
-                            {player}
+                            {index + 1}. {player}
                         </li>
                     ))}
                 </ol>
