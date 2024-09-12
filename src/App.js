@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import GameSearch from './components/GameSearch';
 import Navbar from './components/Navbar';
 import PlayerInputs from './components/PlayerInputs';
-import RandomPlayerPicker from './components/RandomPlayerPicker';
 import { XMLParser } from 'fast-xml-parser';
 
 const API_URL = 'https://corsproxy.io/?https://boardgamegeek.com/xmlapi/boardgame/';
@@ -56,20 +55,21 @@ function App() {
 	return (
 		<div className="App">
 			<Navbar />
-			<GameSearch onGameSelect={handleGameSelect} />
-			{selectedGame && (
-				<>
-					<PlayerInputs
-						players={players}
-						onPlayerChange={handlePlayerChange}
-						onAddPlayer={addPlayer}
-						onRemovePlayer={removePlayer}
-						minPlayers={minPlayers}
-						maxPlayers={maxPlayers}
-					/>
-					<RandomPlayerPicker players={players} />
-				</>
-			)}
+			<main>
+				<GameSearch onGameSelect={handleGameSelect} />
+				{selectedGame && (
+					<>
+						<PlayerInputs
+							players={players}
+							onPlayerChange={handlePlayerChange}
+							onAddPlayer={addPlayer}
+							onRemovePlayer={removePlayer}
+							minPlayers={minPlayers}
+							maxPlayers={maxPlayers}
+						/>
+					</>
+				)}
+			</main>
 		</div>
 	);
 }
