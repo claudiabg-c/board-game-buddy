@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-function RandomPlayerPicker({ players }) {
+function RandomPlayerPicker({ players, minPlayers }) {
     const { t } = useTranslation();
     const [sortedPlayers, setSortedPlayers] = useState([]);
 
@@ -10,22 +10,21 @@ function RandomPlayerPicker({ players }) {
         setSortedPlayers(shuffled);
     };
 
+    const isButtonDisabled = players.length < minPlayers;
+    const buttonClass = isButtonDisabled ? 'disabled-button' : 'enabled-button';
+
     return (
         <div className='sort-players'>
-            <button onClick={handlePickPlayer} disabled={players.length === 0}>
+            <button onClick={handlePickPlayer} disabled={isButtonDisabled} className={buttonClass}>
                 {t('RandomPlayerPicker.button')}
             </button>
-            {sortedPlayers.length > 0 ? (
-                <ol>
-                    {sortedPlayers.map((player, index) => (
-                        <li key={index}>
-                            {index + 1}. {player}
-                        </li>
-                    ))}
-                </ol>
-            ) : (
-                <p>{t('RandomPlayerPicker.noPlayers')}</p>
-            )}
+            <ol>
+                {sortedPlayers.map((player, index) => (
+                    <li key={index}>
+                        {index + 1}. {player}
+                    </li>
+                ))}
+            </ol>
         </div>
     );
 }
