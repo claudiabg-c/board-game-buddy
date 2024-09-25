@@ -4,6 +4,11 @@ import { useTranslation } from 'react-i18next';
 
 function PlayerInputs({ players, onPlayerChange, onAddPlayer, onRemovePlayer, minPlayers, maxPlayers }) {
     const { t } = useTranslation();
+    const filteredPlayers = players.filter(player => player.trim() !== '');
+    const addBtnDisabled = players.length >= maxPlayers;
+    const removeBtnDisabled = players.length <= minPlayers;
+    const addBtnClass = addBtnDisabled ? 'disabled-button' : 'enabled-button';
+    const removeBtnClass = removeBtnDisabled ? 'disabled-button' : 'enabled-button';
 
     return (
         <section>
@@ -20,14 +25,17 @@ function PlayerInputs({ players, onPlayerChange, onAddPlayer, onRemovePlayer, mi
                 ))}
             </div>
             <div className='player-buttons'>
-                <button onClick={onAddPlayer} disabled={players.length >= maxPlayers}>
-                    Add Player
+                <button onClick={onAddPlayer} disabled={addBtnDisabled} className={addBtnClass}>
+                    {t('PlayerInputs.addPlayer')}
                 </button>
-                <button onClick={onRemovePlayer} disabled={players.length <= minPlayers}>
-                    Remove Player
+                <button onClick={onRemovePlayer} disabled={removeBtnDisabled} className={removeBtnClass}>
+                    {t('PlayerInputs.removePlayer')}
                 </button>
             </div>
-            <RandomPlayerPicker players={players} />
+            <RandomPlayerPicker
+                players={filteredPlayers}
+                minPlayers={minPlayers}
+            />
         </section>
     );
 }
