@@ -5,7 +5,9 @@
         "error": "Error: {{error}}",
         "searching": "Results for",
         "noResults": "No results from",
-        "loading": "Loading..."
+        "loading": "Loading...",
+        "next": "Next",
+        "prev": "Previous"
     },
     "PlayerInputs": {
         "title": "Enter player names",

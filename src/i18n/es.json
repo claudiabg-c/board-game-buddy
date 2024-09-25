@@ -5,7 +5,9 @@
         "error": "Error: {{error}}",
         "searching": "Resultados de la búsqueda de",
         "noResults": "Sin resultados de",
-        "loading": "Cargando..."
+        "loading": "Cargando...",
+        "next": "Siguiente",
+        "prev": "Anterior"
     },
     "PlayerInputs": {
         "title": "Añade los nombres de los jugadores",
