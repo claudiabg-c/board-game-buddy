@@ -15,6 +15,7 @@ function GameSearch({ onGameSelect }) {
     const [loading, setLoading] = useState(false);
     const [searchPerformed, setSearchPerformed] = useState(false);
     const [noResultsMessage, setNoResultsMessage] = useState('');
+    const [gameSelected, setGameSelected] = useState(false); // New state for game selection
 
     const fetchGameDetails = useCallback(async (ids) => {
         try {
@@ -54,7 +55,7 @@ function GameSearch({ onGameSelect }) {
                 const nameArray = Array.isArray(game.name) ? game.name : [game.name];
                 const primaryName = nameArray.find(n => n['@_primary'] === 'true');
                 const displayName = primaryName ? primaryName['#text'] : (nameArray[0] ? nameArray[0]['#text'] : 'Unknown');
-                
+
                 return {
                     id: game['@_objectid'],
                     name: displayName,
@@ -62,7 +63,7 @@ function GameSearch({ onGameSelect }) {
                     thumbnail: game.thumbnail || null
                 };
             });
-            
+
             setGames(gamesOnPage);
             setNoResultsMessage('');
         } else {
@@ -78,6 +79,7 @@ function GameSearch({ onGameSelect }) {
         setGames([]);
         setNoResultsMessage('');
         setSearchPerformed(true);
+        setGameSelected(false);  // Reset gameSelected to false for a new search
 
         try {
             const response = await fetch(`${SEARCH_API_URL}?search=${searchTerm}`);
@@ -116,6 +118,7 @@ function GameSearch({ onGameSelect }) {
     const handleGameClick = (game) => {
         setGames([game]);
         onGameSelect(game);
+        setGameSelected(true);  // Set gameSelected to true when a game is clicked
     };
 
     return (
@@ -143,7 +146,7 @@ function GameSearch({ onGameSelect }) {
                 ))}
             </ul>
 
-            {searchPerformed && allIds.length > PAGE_SIZE && (
+            {searchPerformed && !gameSelected && allIds.length > PAGE_SIZE && (  // Check gameSelected to conditionally render buttons
                 <>
                     <button
                         disabled={currentPage === 1 || loading}
