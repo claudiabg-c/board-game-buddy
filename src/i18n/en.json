@@ -3,7 +3,6 @@
         "placeholder": "Search for a game...",
         "button": "Search",
         "error": "Error: {{error}}",
-        "searching": "Results for",
         "noResults": "No results from",
         "loading": "Loading...",
         "next": "Next",

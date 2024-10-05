@@ -12,7 +12,6 @@ function GameSearch({ onGameSelect }) {
     const [allIds, setAllIds] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [games, setGames] = useState([]);
-    const [searchMessage, setSearchMessage] = useState('');
     const [loading, setLoading] = useState(false);
     const [searchPerformed, setSearchPerformed] = useState(false);
     const [noResultsMessage, setNoResultsMessage] = useState('');
@@ -68,7 +67,6 @@ function GameSearch({ onGameSelect }) {
             setNoResultsMessage('');
         } else {
             setGames([]);
-            setSearchMessage('');
             setNoResultsMessage(`${t('GameSearch.noResults')} "${searchTerm}".`);
         }
         setLoading(false);
@@ -76,8 +74,6 @@ function GameSearch({ onGameSelect }) {
 
     const handleSearch = async () => {
         if (!searchTerm) return;
-
-        setSearchMessage(`${t('GameSearch.searching')} "${searchTerm}".`);
         setCurrentPage(1);
         setGames([]);
         setNoResultsMessage('');
@@ -98,11 +94,10 @@ function GameSearch({ onGameSelect }) {
                 fetchGamesForPage(1);
             } else {
                 setAllIds([]);
-                setSearchMessage('');
                 setNoResultsMessage(`${t('GameSearch.noResults')} "${searchTerm}".`);
             }
         } catch (err) {
-            setSearchMessage(`${err.message}`);
+            console.log(`${err.message}`);
         }
     };
 
@@ -136,7 +131,6 @@ function GameSearch({ onGameSelect }) {
                 {t('GameSearch.button')}
             </button>
 
-            {searchMessage && <p>{searchMessage}</p>}
             {loading && <p>{t('GameSearch.loading')}</p>}
             {noResultsMessage && <p>{noResultsMessage}</p>}
 
