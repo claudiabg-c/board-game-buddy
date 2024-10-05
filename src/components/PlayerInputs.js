@@ -11,7 +11,7 @@ function PlayerInputs({ players, onPlayerChange, onAddPlayer, onRemovePlayer, mi
     const removeBtnClass = removeBtnDisabled ? 'disabled-button' : 'enabled-button';
 
     return (
-        <section>
+        <section className='player-inputs-container'>
             <h2>{t('PlayerInputs.title')}:</h2>
             <div className='player-inputs'>
                 {players.map((player, index) => (

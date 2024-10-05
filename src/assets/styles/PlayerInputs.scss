@@ -1,12 +1,7 @@
-section {
+.App section.player-inputs-container {
     .player-inputs {
-        padding: 0 0 30px;
-        min-height: 150px;
-        input {
-            margin: 0 0 10px;
+        input[type=text] {
+            background: url(../imgs/user.svg) no-repeat 10px center;
         }
-    }
-    .player-buttons {
-        padding: 0 0 10px;
     }
 }

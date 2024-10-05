@@ -1,12 +1,6 @@
 .App section.search-container {
     input[type=text] {
-        margin-bottom: 30px;
-        padding-left: 35px;
         background: url(../imgs/search.svg) no-repeat 10px center;
-        background-size: 20px;
-        &:focus-visible {
-            outline: none;
-        }
     }
     .search-result {
         display: flex;
