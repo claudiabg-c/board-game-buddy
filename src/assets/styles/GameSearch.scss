@@ -1,18 +1,27 @@
-section {
+.App section.search-container {
+    input[type=text] {
+        margin-bottom: 30px;
+        padding-left: 35px;
+        background: url(../imgs/search.svg) no-repeat 10px center;
+        background-size: 20px;
+        &:focus-visible {
+            outline: none;
+        }
+    }
     .search-result {
         display: flex;
         flex-wrap: wrap;
         gap: 15px;
-        justify-content: space-around;
+        justify-content: flex-start;
         li {
-            width: calc(33% - 15px);
+            width: calc(25% - 15px);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             gap: 15px;
             padding: 20px;
             img {
-                height: 150px;
+                height: 160px;
                 object-fit: cover;
                 object-position: center;
                 width: 100%;

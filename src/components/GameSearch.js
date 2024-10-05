@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 const SEARCH_API_URL = 'https://corsproxy.io/?https://boardgamegeek.com/xmlapi/search';
 const GAME_API_URL = 'https://corsproxy.io/?https://boardgamegeek.com/xmlapi/boardgame/';
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 8;
 
 function GameSearch({ onGameSelect }) {
     const { t } = useTranslation();
@@ -23,7 +23,7 @@ function GameSearch({ onGameSelect }) {
                 throw new Error('Network response was not ok');
             }
             const text = await response.text();
-            const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: "@_" });
+            const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@_' });
             const result = parser.parse(text);
             if (result.boardgames && result.boardgames.boardgame) {
                 return result.boardgames.boardgame;
@@ -67,7 +67,7 @@ function GameSearch({ onGameSelect }) {
             setNoResultsMessage('');
         } else {
             setGames([]);
-            setNoResultsMessage(`${t('GameSearch.noResults')} "${searchTerm}".`);
+            setNoResultsMessage(`${t('GameSearch.noResults')} '${searchTerm}'.`);
         }
         setLoading(false);
     }, [allIds, fetchGameDetails, t]);
@@ -85,7 +85,7 @@ function GameSearch({ onGameSelect }) {
                 throw new Error('Network response was not ok');
             }
             const text = await response.text();
-            const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: "@_" });
+            const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@_' });
             const result = parser.parse(text);
 
             if (result.boardgames && result.boardgames.boardgame) {
@@ -94,7 +94,7 @@ function GameSearch({ onGameSelect }) {
                 fetchGamesForPage(1);
             } else {
                 setAllIds([]);
-                setNoResultsMessage(`${t('GameSearch.noResults')} "${searchTerm}".`);
+                setNoResultsMessage(`${t('GameSearch.noResults')} '${searchTerm}'.`);
             }
         } catch (err) {
             console.log(`${err.message}`);
@@ -119,9 +119,9 @@ function GameSearch({ onGameSelect }) {
     };
 
     return (
-        <section>
+        <section className='search-container'>
             <input
-                type="text"
+                type='text'
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onKeyUp={handleKeyPress}
