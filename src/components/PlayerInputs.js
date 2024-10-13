@@ -12,17 +12,14 @@ function PlayerInputs({ players, onPlayerChange, onAddPlayer, onRemovePlayer, mi
     const addBtnClass = addBtnDisabled ? 'disabled-button' : 'enabled-button';
     const removeBtnClass = removeBtnDisabled ? 'disabled-button' : 'enabled-button';
 
-    // Obtener nombres frecuentemente usados al cargar el componente
     useEffect(() => {
         const storedPlayers = JSON.parse(localStorage.getItem('frequentlyUsedPlayers')) || {};
-        // Ordenar por frecuencia y tomar los primeros 5
         const sortedPlayers = Object.keys(storedPlayers)
             .sort((a, b) => storedPlayers[b] - storedPlayers[a])
             .slice(0, 5);
         setFrequentlyUsed(sortedPlayers);
     }, []);
 
-    // Manejar la selección de un nombre frecuente
     const handleSelectFrequentPlayer = (name) => {
         const emptyIndex = players.findIndex(player => player.trim() === '');
         if (emptyIndex !== -1) {

@@ -5,7 +5,6 @@ function RandomPlayerPicker({ players, minPlayers }) {
     const { t } = useTranslation();
     const [sortedPlayers, setSortedPlayers] = useState([]);
 
-    // Función para actualizar los nombres frecuentemente usados
     const updateFrequentlyUsedPlayers = (sortedPlayers) => {
         const storedPlayers = JSON.parse(localStorage.getItem('frequentlyUsedPlayers')) || {};
         
