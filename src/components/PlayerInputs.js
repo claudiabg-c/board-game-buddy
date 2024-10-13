@@ -6,9 +6,17 @@ function PlayerInputs({ players, onPlayerChange, onAddPlayer, onRemovePlayer, mi
     const { t } = useTranslation();
     const [frequentlyUsed, setFrequentlyUsed] = useState([]);
 
+    const adjustedMinPlayers = Math.max(minPlayers, 2);
+
+    useEffect(() => {
+        if (players.length < adjustedMinPlayers) {
+            onAddPlayer();
+        }
+    }, [players, adjustedMinPlayers, onAddPlayer]);
+
     const filteredPlayers = players.filter(player => player.trim() !== '');
     const addBtnDisabled = players.length >= maxPlayers;
-    const removeBtnDisabled = players.length <= minPlayers;
+    const removeBtnDisabled = players.length <= adjustedMinPlayers;
     const addBtnClass = addBtnDisabled ? 'disabled-button' : 'enabled-button';
     const removeBtnClass = removeBtnDisabled ? 'disabled-button' : 'enabled-button';
 
@@ -65,7 +73,7 @@ function PlayerInputs({ players, onPlayerChange, onAddPlayer, onRemovePlayer, mi
             </div>
             <RandomPlayerPicker
                 players={filteredPlayers}
-                minPlayers={minPlayers}
+                minPlayers={adjustedMinPlayers}
             />
         </section>
     );

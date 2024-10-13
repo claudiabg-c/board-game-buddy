@@ -10,8 +10,10 @@
     }
     .frequently-used {
         button {
-
             background-color: $secondary-color;
+            &:hover {
+                background-color: darken($secondary-color, 10%);
+            }
         }
     }
 }
