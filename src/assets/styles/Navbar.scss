@@ -32,3 +32,15 @@ nav {
         }
     }
 }
+
+@media (max-width: 425px) {
+    nav {
+        h1 {
+            font-size: 18px;
+        }
+        div button {
+            margin-left: 5px;
+            padding: 5px;
+        }
+    }
+}
