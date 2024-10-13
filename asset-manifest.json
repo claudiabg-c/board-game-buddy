@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/board-game-buddy/static/css/main.5faef84f.css",
+    "main.js": "/board-game-buddy/static/js/main.36b5bd39.js",
+    "static/media/SpaceGrotesk-Light.ttf": "/board-game-buddy/static/media/SpaceGrotesk-Light.ba15429f9efcccc2826a.ttf",
+    "static/media/SpaceGrotesk-Medium.ttf": "/board-game-buddy/static/media/SpaceGrotesk-Medium.d188dfade7a12bbb16c1.ttf",
+    "static/media/SpaceGrotesk-Regular.ttf": "/board-game-buddy/static/media/SpaceGrotesk-Regular.3683ead52440efaeba4d.ttf",
+    "static/media/SpaceGrotesk-SemiBold.ttf": "/board-game-buddy/static/media/SpaceGrotesk-SemiBold.0c90cf115980aae34f07.ttf",
+    "static/media/SpaceGrotesk-Bold.ttf": "/board-game-buddy/static/media/SpaceGrotesk-Bold.9ee2fc15497f7869312f.ttf",
+    "index.html": "/board-game-buddy/index.html",
+    "static/media/user.svg": "/board-game-buddy/static/media/user.0bc72337b17c8420ecbe.svg",
+    "static/media/search.svg": "/board-game-buddy/static/media/search.88932de26c7578c67b15.svg",
+    "main.5faef84f.css.map": "/board-game-buddy/static/css/main.5faef84f.css.map",
+    "main.36b5bd39.js.map": "/board-game-buddy/static/js/main.36b5bd39.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5faef84f.css",
+    "static/js/main.36b5bd39.js"
+  ]
+}
