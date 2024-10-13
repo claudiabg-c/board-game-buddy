@@ -64,6 +64,10 @@
             &:hover {
                 background-color: darken($tertiary-color, 10%);
             }
+            &.disabled-button {
+                cursor: default;
+                background-color: lighten($tertiary-color, 10%);
+            }
         }
     }
 }
