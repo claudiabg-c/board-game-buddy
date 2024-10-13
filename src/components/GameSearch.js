@@ -6,7 +6,7 @@ const SEARCH_API_URL = 'https://corsproxy.io/?https://boardgamegeek.com/xmlapi/s
 const GAME_API_URL = 'https://corsproxy.io/?https://boardgamegeek.com/xmlapi/boardgame/';
 const PAGE_SIZE = 8;
 
-function GameSearch({ onGameSelect }) {
+function GameSearch({ onGameSelect, onSearchReset }) {
     const { t } = useTranslation();
     const [searchTerm, setSearchTerm] = useState('');
     const [allIds, setAllIds] = useState([]);
@@ -15,7 +15,7 @@ function GameSearch({ onGameSelect }) {
     const [loading, setLoading] = useState(false);
     const [searchPerformed, setSearchPerformed] = useState(false);
     const [noResultsMessage, setNoResultsMessage] = useState('');
-    const [gameSelected, setGameSelected] = useState(false); // New state for game selection
+    const [gameSelected, setGameSelected] = useState(false);
 
     const fetchGameDetails = useCallback(async (ids) => {
         try {
@@ -75,11 +75,13 @@ function GameSearch({ onGameSelect }) {
 
     const handleSearch = async () => {
         if (!searchTerm) return;
+
+        onSearchReset();
         setCurrentPage(1);
         setGames([]);
         setNoResultsMessage('');
         setSearchPerformed(true);
-        setGameSelected(false);  // Reset gameSelected to false for a new search
+        setGameSelected(false);
 
         try {
             const response = await fetch(`${SEARCH_API_URL}?search=${searchTerm}`);
@@ -115,10 +117,10 @@ function GameSearch({ onGameSelect }) {
         }
     };
 
-    const handleGameClick = (game) => {
+    const handleGameClick = (game) => {        
         setGames([game]);
         onGameSelect(game);
-        setGameSelected(true);  // Set gameSelected to true when a game is clicked
+        setGameSelected(true);
     };
 
     return (
@@ -146,7 +148,7 @@ function GameSearch({ onGameSelect }) {
                 ))}
             </ul>
 
-            {searchPerformed && !gameSelected && allIds.length > PAGE_SIZE && (  // Check gameSelected to conditionally render buttons
+            {searchPerformed && !gameSelected && allIds.length > PAGE_SIZE && (
                 <>
                     <button
                         disabled={currentPage === 1 || loading}

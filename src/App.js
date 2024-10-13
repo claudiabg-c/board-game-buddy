@@ -11,9 +11,11 @@ function App() {
 	const [players, setPlayers] = useState([]);
 	const [minPlayers, setMinPlayers] = useState(0);
 	const [maxPlayers, setMaxPlayers] = useState(0);
+	const [showPlayerInputs, setShowPlayerInputs] = useState(false);
 
 	const handleGameSelect = async (game) => {
 		setSelectedGame(game);
+		setShowPlayerInputs(false);
 
 		try {
 			const response = await fetch(`${API_URL}${game.id}`);
@@ -29,6 +31,8 @@ function App() {
 			setMinPlayers(gameData.minplayers);
 			setMaxPlayers(gameData.maxplayers);
 			setPlayers(Array(gameData.minplayers).fill(''));
+
+			setShowPlayerInputs(true);  
 		} catch (error) {
 			console.error("Error fetching player data:", error);
 		}
@@ -52,12 +56,17 @@ function App() {
 		}
 	};
 
+	const handleSearchReset = () => {
+		setShowPlayerInputs(false);
+		setSelectedGame(null);
+	};
+
 	return (
 		<div className="App">
 			<Navbar />
 			<main>
-				<GameSearch onGameSelect={handleGameSelect} />
-				{selectedGame && (
+				<GameSearch onGameSelect={handleGameSelect} onSearchReset={handleSearchReset} />
+				{selectedGame && showPlayerInputs && (
 					<>
 						<PlayerInputs
 							players={players}
