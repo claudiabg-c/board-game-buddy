@@ -1,0 +1,11 @@
+.sort-players {
+    ol {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        li {
+            padding: 10px 20px;
+            cursor: default;
+        }
+    }
+}
