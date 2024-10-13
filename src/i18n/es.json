@@ -12,7 +12,8 @@
         "title": "Añade los nombres de los jugadores",
         "placeholder": "Nombre jugador",
         "addPlayer": "Añadir jugador",
-        "removePlayer": "Eliminar jugador"
+        "removePlayer": "Eliminar jugador",
+        "frequentlyUsed": "Usados recientemente"
     },
     "RandomPlayerPicker": {
         "button": "Ordenar jugadores",

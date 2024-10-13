@@ -12,7 +12,8 @@
         "title": "Enter player names",
         "placeholder": "Name player",
         "addPlayer": "Add player",
-        "removePlayer": "Remove player"
+        "removePlayer": "Remove player",
+        "frequentlyUsed": "Frequently used"
     },
     "RandomPlayerPicker": {
         "button": "Sort players",

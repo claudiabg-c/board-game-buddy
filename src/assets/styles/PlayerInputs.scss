@@ -1,7 +1,17 @@
 .App section.player-inputs-container {
+    h2 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
     .player-inputs {
         input[type=text] {
             background: url(../imgs/user.svg) no-repeat 10px center;
+        }
+    }
+    .frequently-used {
+        button {
+
+            background-color: $secondary-color;
         }
     }
 }
