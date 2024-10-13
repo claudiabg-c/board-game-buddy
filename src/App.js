@@ -32,7 +32,7 @@ function App() {
 			setMaxPlayers(gameData.maxplayers);
 			setPlayers(Array(gameData.minplayers).fill(''));
 
-			setShowPlayerInputs(true);  
+			setShowPlayerInputs(true);
 		} catch (error) {
 			console.error("Error fetching player data:", error);
 		}
@@ -80,7 +80,7 @@ function App() {
 				)}
 			</main>
 		</div>
-	);
+    );
 }
 
 export default App;
